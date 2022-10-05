@@ -25,6 +25,13 @@ def fizzbuzz(max):
         else:
             print(result)
 
+# rules for the game
+rules = "Rules:\n\
+        -Type integers counting upwards from 1 (inclusive) \n\
+        -If the number is divisible by 3, instead type Fizz \n\
+        -If the number is divisible by 5, instead type Buzz \n\
+        -If the number is divisible by both, type FizzBuzz! \n\
+        Note: they are not cap sensitive"
 # Stores user inputs
 answer = ""
 # Just syntax
@@ -33,12 +40,7 @@ print("Welcome to FizzBuzz interactive! Would you like to hear the rules?")
 while answer != None:
     answer = input("y/n: ").lower()
     if answer == "y":
-        print("Rules:\n\
-        -Type integers counting upwards from 1 (inclusive) \n\
-        -If the number is divisible by 3, instead type Fizz \n\
-        -If the number is divisible by 5, instead type Buzz \n\
-        -If the number is divisible by both, type FizzBuzz! \n\
-        Note: they are not cap sensitive")
+        print(rules)
         break
     elif answer == "n":
         print("Okay! If you ever change your mind, just type 'rules' to see them later!")
@@ -50,7 +52,9 @@ print("With that out of the way, would you like to play interactive mode (I) or 
 print("(If you wanna know the difference, type 'help')")
 while answer != None:
     answer = input("I/C: ").lower()
-    if answer == "i":
+    if answer == "rules":
+        print(rules)
+    elif answer == "i":
         print("Lets play!")
         break
     elif answer == "c":
@@ -65,7 +69,13 @@ while answer != None:
             break
         fizzbuzz(answer)
         print("\nAll done!")
-        break
+        print("Would you like to play again?")
+        answer = input("y/n: ")
+        if answer == "y":
+            print("Okay! Interactive or Computer mode?")
+        elif answer == "n":
+            print("I hope you had fun! Bye for now friend")
+            quit()
     elif answer == 'help':
         print("In interactive mode, you will play fizzbuzz and try to get a highscore as fast as you can without making a mistake!")
         print("In computer mode, you can set the max number and our CPU friend will show you how its done!")
