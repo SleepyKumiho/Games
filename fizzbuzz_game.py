@@ -1,10 +1,7 @@
 """
 Programmer: Ryan Lee
-
 Fizzbuzz interactive
-
 Play fizzbuzz and see how high you can get without making a mistake, or let the computer do it for you!
-
 Rules:
     -Type integers counting upwards from 1 (inclusive)
     -If the number is divisible by 3, instead type Fizz
@@ -12,6 +9,21 @@ Rules:
     -If the number is divisible by both, type FizzBuzz!
     Note: they are not cap sensitive
 """
+
+# A function to type out a full game of fizzbuzz
+# Assumes max will be an int on input
+def fizzbuzz(max):
+    ran = range(max + 1)
+    for x in ran:
+        result = ""
+        if x % 3 == 0:
+            result += "Fizz"
+        if x % 5 == 0:
+            result += "Buzz"
+        if result == "":
+            print(x)
+        else:
+            print(result)
 
 # Stores user inputs
 answer = ""
@@ -51,6 +63,8 @@ while answer != None:
                 print("Error: Please only use numbers")
                 continue
             break
+        fizzbuzz(answer)
+        print("\nAll done!")
         break
     elif answer == 'help':
         print("In interactive mode, you will play fizzbuzz and try to get a highscore as fast as you can without making a mistake!")
